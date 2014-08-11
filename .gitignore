@@ -1,0 +1,8 @@
+README.pdf
+README.html
+shared_test_repo/
+test/integration
+.kitchen
+
+Gemfile.lock
+Berksfile.lock
