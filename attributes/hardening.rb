@@ -65,4 +65,5 @@ default['nginx-hardening']['options'] = [
   {'limit_conn_zone' => '$binary_remote_addr zone=default:10m'},
   {'limit_conn' => 'default 5'},
 
+  {'add_header' => 'X-Frame-Options SAMEORIGIN'}
 ]
