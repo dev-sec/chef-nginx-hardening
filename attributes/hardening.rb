@@ -46,31 +46,35 @@ default['nginx']['keepalive_timeout'] = '5 5'
 
 # additional security options (separate config file)
 
-default['nginx-hardening']['options'] = [
+default['nginx-hardening']['options'] = {
 
-  {'more_clear_headers' => '\'Server\''},
+  'more_clear_headers' => [
+    '\'Server\'',
+    '\'X-Powered-By\''
+  ],
 
-  {'more_clear_headers' => '\'X-Powered-By\''},
+  'client_header_buffer_size' => '1k',
 
-  {'client_header_buffer_size' => '1k'},
+  'large_client_header_buffers' => '2 1k',
 
-  {'large_client_header_buffers' => '2 1k'},
+  'client_body_timeout' => '10',
 
-  {'client_body_timeout' => '10'},
+  'client_header_timeout' => '10',
 
-  {'client_header_timeout' => '10'},
+  'send_timeout' => '10',
 
-  {'send_timeout' => '10'},
+  'limit_conn_zone' => '$binary_remote_addr zone=default:10m',
+  'limit_conn' => 'default 5',
 
-  {'limit_conn_zone' => '$binary_remote_addr zone=default:10m'},
-  {'limit_conn' => 'default 5'},
+  'add_header' => [
+    # vvoid clickjacking
+    'X-Frame-Options SAMEORIGIN',
 
-  # vvoid clickjacking
-  {'add_header' => 'X-Frame-Options SAMEORIGIN'},
+    # disable content-type sniffing
+    'X-Content-Type-Options nosniff',
 
-  # disable content-type sniffing
-  {'add_header' => 'X-Content-Type-Options nosniff'},
+    # XSS filter
+    'X-XSS-Protection "1; mode=block"'
+  ]
 
-  # XSS filter
-  {'add_header' => 'X-XSS-Protection "1; mode=block"'}
-]
+}

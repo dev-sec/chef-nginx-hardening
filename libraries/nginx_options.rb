@@ -24,7 +24,12 @@ class Chef
     class NginxHardening
 
       def self.options( map, indentation = 0 )
+        # prep
+        indent = "  "*indentation
 
+        # if the user supplies an array of something,
+        # process each entry as a separate options element
+        # and join them
         if map.kind_of? Array
           return map.map{|x|
             self.options(x, indentation)}.join("")
@@ -32,17 +37,21 @@ class Chef
 
         return "" unless map.kind_of? Hash
 
-        indent = "  "*indentation
-        indentnl = indent + "\n"
-
+        # handle hashes by associating their keys/values in nginx
         indent +
         map.map do |k,v|
           if v.kind_of? Hash
+            # treat it as a new group and process the child hash
+            # in a separate options run
             "#{k} {\n" + self.options(v, indentation + 1) + "}\n"
+          elsif v.kind_of? Array
+            # treat it as multiple calls to the same element
+            v.map{|x| "#{k} #{x};\n"}.join(indent)
           else
+            # for anything else, just join it up
             "#{k} #{v};\n"
           end
-        end.join(indentnl)
+        end.join(indent)
 
       end
 
