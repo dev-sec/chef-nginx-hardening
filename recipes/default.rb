@@ -25,8 +25,8 @@ Array(node['nginx-hardening']['packages']).each do |p|
 end
 
 template "#{node['nginx']['dir']}/conf.d/90.hardening.conf" do
-  source "extras.conf.erb"
-  variables({
-    :options => NginxHardening.options( node['nginx-hardening']['options'] )
-  })
+  source 'extras.conf.erb'
+  variables(
+    options: NginxHardening.options(node['nginx-hardening']['options'])
+  )
 end
