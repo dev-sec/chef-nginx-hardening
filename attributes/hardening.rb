@@ -66,8 +66,11 @@ default['nginx-hardening']['options'] = [
   {'limit_conn' => 'default 5'},
 
   # vvoid clickjacking
-  {'add_header' => 'X-Frame-Options SAMEORIGIN'}
+  {'add_header' => 'X-Frame-Options SAMEORIGIN'},
 
   # disable content-type sniffing
-  {'add_header' => 'X-Content-Type-Options nosniff'}
+  {'add_header' => 'X-Content-Type-Options nosniff'},
+
+  # XSS filter
+  {'add_header' => 'X-XSS-Protection "1; mode=block"'}
 ]
