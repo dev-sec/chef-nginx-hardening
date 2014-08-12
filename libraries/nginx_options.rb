@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
 # Cookbook Name:: nginx-hardening
-# Attributes:: default
+# Library:: nginx_options
 #
 # Copyright 2014, Dominik Richter
 # Copyright 2014, Deutsche Telekom AG
@@ -19,4 +19,33 @@
 # limitations under the License.
 #
 
-include_attribute 'nginx'
+class Chef
+  class Recipe
+    class NginxHardening
+
+      def self.options( map, indentation = 0 )
+
+        if map.kind_of? Array
+          return map.map{|x|
+            self.options(x, indentation)}.join("")
+        end
+
+        return "" unless map.kind_of? Hash
+
+        indent = "  "*indentation
+        indentnl = indent + "\n"
+
+        indent +
+        map.map do |k,v|
+          if v.kind_of? Hash
+            "#{k} {\n" + self.options(v, indentation + 1) + "}\n"
+          else
+            "#{k} #{v};\n"
+          end
+        end.join(indentnl)
+
+      end
+
+    end
+  end
+end

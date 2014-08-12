@@ -19,3 +19,23 @@
 # limitations under the License.
 #
 
+case platform
+when 'debian', 'ubuntu'
+  default['nginx-hardening']['packages'] = 'nginx-extras'
+else
+  default['nginx-hardening']['packages'] = []
+end
+
+# security options
+
+default['nginx']['server_tokens'] = 'off'
+
+default['nginx']['default_site_enabled'] = false
+
+
+# additional security options (separate config file)
+
+default['nginx-hardening']['options'] = [
+  {'more_clear_headers' => '\'Server\''},
+  {'more_clear_headers' => '\'X-Powered-By\''},
+]
