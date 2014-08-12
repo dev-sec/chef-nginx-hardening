@@ -36,11 +36,17 @@ default['nginx']['client_body_buffer_size'] = '1k'
 
 default['nginx']['client_max_body_size'] = '1k'
 
+default['nginx']['keepalive'] = 'on'
+default['nginx']['keepalive_timeout'] = '5 5'
+
 # additional security options (separate config file)
 
 default['nginx-hardening']['options'] = [
   {'more_clear_headers' => '\'Server\''},
   {'more_clear_headers' => '\'X-Powered-By\''},
   {'client_header_buffer_size' => '1k'},
-  {'large_client_header_buffers' => '2 1k'}
+  {'large_client_header_buffers' => '2 1k'},
+  {'client_body_timeout' => '10'},
+  {'client_header_timeout' => '10'},
+  {'send_timeout' => '10'}
 ]
