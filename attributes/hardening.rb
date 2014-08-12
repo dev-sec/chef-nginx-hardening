@@ -19,5 +19,3 @@
 # limitations under the License.
 #
 
-
-include_attribute 'nginx'
