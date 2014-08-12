@@ -39,6 +39,11 @@ default['nginx']['client_max_body_size'] = '1k'
 default['nginx']['keepalive'] = 'on'
 default['nginx']['keepalive_timeout'] = '5 5'
 
+# default['nginx']['enable_rate_limiting'] = true
+# default['nginx']['rate_limiting_zone_name'] = 'default'
+# default['nginx']['rate_limiting_backoff'] = '10m'
+# default['nginx']['rate_limit'] = '1r/s'
+
 # additional security options (separate config file)
 
 default['nginx-hardening']['options'] = [
@@ -48,5 +53,8 @@ default['nginx-hardening']['options'] = [
   {'large_client_header_buffers' => '2 1k'},
   {'client_body_timeout' => '10'},
   {'client_header_timeout' => '10'},
-  {'send_timeout' => '10'}
+  {'send_timeout' => '10'},
+
+  {'limit_conn_zone' => '$binary_remote_addr zone=default:10m'},
+  {'limit_conn' => 'default 5'}
 ]
