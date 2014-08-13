@@ -78,3 +78,19 @@ default['nginx-hardening']['options'] = {
   ]
 
 }
+
+# compilation flags (if used)
+
+default['nginx-hardening']['source']['http_autoindex_module'] = false
+default['nginx-hardening']['source']['http_ssi_module'] = false
+
+# create the final list of flags
+flags = %W(
+  --prefix=#{node['nginx']['source']['prefix']}
+  --conf-path=#{node['nginx']['dir']}/nginx.conf
+  --sbin-path=#{node['nginx']['source']['sbin_path']}
+)
+flags.push '--without-http_autoindex_module' unless node['nginx-hardening']['source']['http_autoindex_module']
+flags.push '--without-http_ssi_module'       unless node['nginx-hardening']['source']['http_ssi_module']
+
+default['nginx']['source']['default_configure_flags'] = flags
