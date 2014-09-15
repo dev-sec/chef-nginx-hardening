@@ -19,13 +19,6 @@
 # limitations under the License.
 #
 
-case platform
-when 'debian', 'ubuntu'
-  default['nginx-hardening']['packages'] = 'nginx-extras'
-else
-  default['nginx-hardening']['packages'] = []
-end
-
 # security options
 
 default['nginx']['server_tokens'] = 'off'

@@ -19,14 +19,27 @@
 # limitations under the License.
 #
 
-# Get required packages
-Array(node['nginx-hardening']['packages']).each do |p|
-  package p
+options = node['nginx-hardening']['options'].to_hash
+
+# OS-specific configuration
+if platform?('ubuntu', 'debian')
+
+  # when installing from canonical package on Ubuntu
+  # we can get additional modules via extra package
+  if node['nginx']['install_method'] == 'package'
+    package 'nginx-extras'
+
+  else
+    # repo and source installations have no extra modules
+    # on ubuntu/debian so the affected options must be removed
+    options.delete('more_clear_headers')
+  end
+
 end
 
 template "#{node['nginx']['dir']}/conf.d/90.hardening.conf" do
   source 'extras.conf.erb'
   variables(
-    options: NginxHardening.options(node['nginx-hardening']['options'])
+    options: NginxHardening.options(options)
   )
 end
