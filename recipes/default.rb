@@ -19,6 +19,8 @@
 # limitations under the License.
 #
 
+include_recipe('nginx-hardening::minimize_access')
+
 options = node['nginx-hardening']['options'].to_hash
 
 # OS-specific configuration
