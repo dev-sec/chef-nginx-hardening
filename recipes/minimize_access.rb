@@ -24,4 +24,3 @@ file '/etc/nginx/nginx.conf' do
   group 'root'
   mode '0600'
 end
-
