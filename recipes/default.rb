@@ -45,3 +45,7 @@ template "#{node['nginx']['dir']}/conf.d/90.hardening.conf" do
     options: NginxHardening.options(options)
   )
 end
+
+file "/etc/nginx/conf.d/default.conf" do
+  action :delete
+end
