@@ -19,6 +19,8 @@
 # limitations under the License.
 #
 
+include_recipe('nginx-hardening::minimize_access')
+
 options = node['nginx-hardening']['options'].to_hash
 
 # OS-specific configuration
@@ -42,4 +44,8 @@ template "#{node['nginx']['dir']}/conf.d/90.hardening.conf" do
   variables(
     options: NginxHardening.options(options)
   )
+end
+
+file '/etc/nginx/conf.d/default.conf' do
+  action :delete
 end
