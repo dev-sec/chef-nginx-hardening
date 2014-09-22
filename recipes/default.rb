@@ -28,9 +28,8 @@ if platform?('ubuntu', 'debian')
 
   # when installing from canonical package on Ubuntu
   # we can get additional modules via extra package
-  if node['nginx']['install_method'] == 'package'
+  if node['nginx']['install_method'] == 'package' && node['nginx']['repo_source'].nil?
     package 'nginx-extras'
-
   else
     # repo and source installations have no extra modules
     # on ubuntu/debian so the affected options must be removed
