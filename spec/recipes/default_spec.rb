@@ -1,6 +1,5 @@
-# encoding: utf-8
+# encoding: UTF-8
 #
-# Copyright 2014, Dominik Richter
 # Copyright 2014, Deutsche Telekom AG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,9 +15,22 @@
 # limitations under the License.
 #
 
-require 'chefspec'
-require 'chefspec/berkshelf'
-require 'chefspec/server'
+require_relative '../spec_helper'
 
-# coverage report
-ChefSpec::Coverage.start!
+describe 'nginx-hardening::default' do
+
+  # converge
+  let(:chef_run) do
+    ChefSpec::Runner.new.converge(described_recipe)
+  end
+
+  # check that the recipres are executed
+  it 'default should include os-hardening recipes by default' do
+    chef_run.should include_recipe 'nginx-hardening::minimize_access'
+  end
+
+  it 'creates /conf.d/90.hardening.conf' do
+    expect(chef_run).to create_template('/etc/nginx/conf.d/90.hardening.conf')
+  end
+
+end
