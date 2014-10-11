@@ -38,7 +38,7 @@ if platform?('ubuntu', 'debian')
 
 end
 
-if platform_family?("rhel")
+if platform_family?('rhel')
   unless node['nginx']['repo_source'].nil?
     # repo and source installations have no extra modules
     # on ubuntu/debian so the affected options must be removed
