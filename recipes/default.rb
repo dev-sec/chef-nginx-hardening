@@ -38,6 +38,14 @@ if platform?('ubuntu', 'debian')
 
 end
 
+if platform_family?('rhel')
+  unless node['nginx']['repo_source'].nil?
+    # repo and source installations have no extra modules
+    # on ubuntu/debian so the affected options must be removed
+    options.delete('more_clear_headers')
+  end
+end
+
 template "#{node['nginx']['dir']}/conf.d/90.hardening.conf" do
   source 'extras.conf.erb'
   variables(
