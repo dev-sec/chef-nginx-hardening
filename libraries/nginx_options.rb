@@ -40,19 +40,19 @@ class Chef
 
         # handle hashes by associating their keys/values in nginx
         indent +
-        map.map do |k, v|
-          if v.is_a? Hash
-            # treat it as a new group and process the child hash
-            # in a separate options run
-            "#{k} {\n" + options(v, indentation + 1) + "}\n"
-          elsif v.is_a? Array
-            # treat it as multiple calls to the same element
-            v.map { |x| "#{k} #{x};\n" }.join(indent)
-          else
-            # for anything else, just join it up
-            "#{k} #{v};\n"
-          end
-        end.join(indent)
+          map.map do |k, v|
+            if v.is_a? Hash
+              # treat it as a new group and process the child hash
+              # in a separate options run
+              "#{k} {\n" + options(v, indentation + 1) + "}\n"
+            elsif v.is_a? Array
+              # treat it as multiple calls to the same element
+              v.map { |x| "#{k} #{x};\n" }.join(indent)
+            else
+              # for anything else, just join it up
+              "#{k} #{v};\n"
+            end
+          end.join(indent)
       end
       #
     end
