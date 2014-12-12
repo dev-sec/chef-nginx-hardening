@@ -4,6 +4,7 @@ AllCops:
   - vendor/**/*
   - test/**/*
   - metadata.rb
+  - Berksfile
 Documentation:
   Enabled: false
 AlignParameters:
@@ -13,6 +14,8 @@ Encoding:
 HashSyntax:
   Enabled: true
 LineLength:
+  Enabled: false
+EmptyLinesAroundBlockBody:
   Enabled: false
 MethodLength:
   Max: 40
