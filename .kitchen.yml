@@ -22,10 +22,10 @@ platforms:
   driver_config:
     box: opscode-centos-6.5
     box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box
-- name: oracle-6.4
-  driver_config:
-    box: oracle-6.4
-    box_url: https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel64-64.box
+# - name: oracle-6.4
+#   driver_config:
+#     box: oracle-6.4
+#     box_url: https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel64-64.box
 - name: oracle-6.5
   driver_config:
     box: oracle-6.5
