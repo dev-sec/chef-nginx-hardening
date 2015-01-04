@@ -19,9 +19,12 @@ require_relative '../spec_helper'
 
 describe 'nginx-hardening::default' do
 
-  # converge
-  cached(:chef_run) do
-    ChefSpec::Runner.new.converge(described_recipe)
+  let(:chef_run) { ChefSpec::SoloRunner.converge('nginx::default', described_recipe) }
+
+  before do
+    stub_command('/usr/sbin/apache2 -t')
+    stub_command("find /etc/nginx -perm -o+r -type f -o -perm -o+w -type f | wc -l | egrep '^0$'")
+    stub_command('which nginx').and_return(true)
   end
 
   # check that the recipres are executed
