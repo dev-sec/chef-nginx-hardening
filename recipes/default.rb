@@ -51,8 +51,10 @@ template "#{node['nginx']['dir']}/conf.d/90.hardening.conf" do
   variables(
     options: NginxHardening.options(options)
   )
+  notifies :restart, 'service[nginx]', :immediately
 end
 
 file '/etc/nginx/conf.d/default.conf' do
   action :delete
+  notifies :restart, 'service[nginx]', :immediately
 end

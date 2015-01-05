@@ -18,9 +18,15 @@
 # limitations under the License.
 #
 
-# nginx.conf must only be accessible to user root
-file '/etc/nginx/nginx.conf' do
-  owner 'root'
-  group 'root'
-  mode '0600'
+# change all the already created resource so we do not flap on o-rw
+run_context.resource_collection.each do |resource|
+  resource.mode('0600') if resource.name =~ /#{node['nginx']['dir']}/ && resource.mode == '0644'
+  resource.mode('0750') if resource.name =~ /#{node['nginx']['dir']}/ && resource.mode == '0755'
+  resource.mode('0600') if resource.name == 'nginx.conf'
+end
+
+# change all the other files not defined as resources
+execute 'remove world readable files' do
+  command "chmod -R o-rw #{node['nginx']['dir']}"
+  not_if "find #{node['nginx']['dir']} -perm -o+r -type f -o -perm -o+w -type f | wc -l | egrep '^0$'"
 end

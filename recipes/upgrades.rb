@@ -1,10 +1,10 @@
 # encoding: utf-8
 #
 # Cookbook Name:: nginx-hardening
-# Attributes:: default
+# Recipe:: default.rb
 #
-# Copyright 2014, Dominik Richter
-# Copyright 2014, Deutsche Telekom AG
+# Copyright 2015, Edmund Haselwanter
+# Copyright 2015, Deutsche Telekom AG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,5 @@
 # limitations under the License.
 #
 
-include_attribute 'nginx'
-
-# to be on par with the puppet module defaults
-default['nginx']['repo_source'] = 'nginx'
+# nginx requires up to date openssl packages
+include_recipe 'openssl::upgrade'
