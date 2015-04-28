@@ -18,7 +18,6 @@
 
 require 'chefspec'
 require 'chefspec/berkshelf'
-require 'chefspec/server'
 require 'chefspec/cacher'
 require 'coveralls'
 
