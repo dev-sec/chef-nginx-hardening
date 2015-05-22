@@ -25,6 +25,8 @@ describe 'nginx-hardening::default' do
     stub_command('/usr/sbin/apache2 -t')
     stub_command("find /etc/nginx -perm -o+r -type f -o -perm -o+w -type f | wc -l | egrep '^0$'")
     stub_command('which nginx').and_return(true)
+    allow(::File).to receive(:exist?).and_return(false)
+    allow(::File).to receive(:exist?).with('/etc/nginx/dh2048.pem').and_return(false)
   end
 
   # check that the recipres are executed
@@ -36,4 +38,7 @@ describe 'nginx-hardening::default' do
     expect(chef_run).to create_template('/etc/nginx/conf.d/90.hardening.conf')
   end
 
+  it 'creates dh group' do
+    expect(chef_run).to run_execute('generate_dh_group')
+  end
 end
