@@ -1,3 +1,4 @@
+---
 rvm:
 - 1.9.3
 - 2.0.0
@@ -9,5 +10,5 @@ language: ruby
 bundler_args: "--without development integration openstack"
 matrix:
   exclude:
-    - rvm: 1.9.3
-      gemfile: Gemfile
+  - rvm: 1.9.3
+    gemfile: Gemfile
