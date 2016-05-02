@@ -1,10 +1,15 @@
 ---
 driver:
   name: vagrant
-  require_chef_omnibus: 11.16.4
+  require_chef_omnibus: 12.5
+
 provisioner:
   name: chef_solo
-  test_repo_uri: https://github.com/TelekomLabs/tests-nginx-hardening.git
+
+verifier:
+  name: inspec
+  sudo: true
+
 platforms:
 - name: ubuntu-12.04
   driver_config:
@@ -46,7 +51,17 @@ platforms:
   driver_config:
     box: debian/jessie64
     box_url: https://atlas.hashicorp.com/debian/boxes/jessie64/versions/8.1.0/providers/virtualbox.box
+
 suites:
 - name: default
   run_list:
-  - - role[nginx]
+  - recipe[nginx]
+  - recipe[chef-solo-search]
+  - recipe[apt]
+  - recipe[yum]
+  - recipe[nginx-hardening::upgrades]
+  - recipe[nginx]
+  - recipe[nginx-hardening]
+  verifier:
+    inspec_tests:
+      - https://github.com/dev-sec/tests-nginx-hardening
