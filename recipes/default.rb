@@ -21,7 +21,7 @@
 
 include_recipe('nginx-hardening::minimize_access')
 
-node.default['nginx-hardening']['options']['ssl_dhparam'] = ::File.join (node['nginx-hardening']['certificates_dir'] || '/etc/nginx/'), 'dh2048.pem'
+node.default['nginx-hardening']['options']['ssl_dhparam'] = ::File.join((node['nginx-hardening']['certificates_dir'] || '/etc/nginx/'), 'dh2048.pem')
 
 options = node['nginx-hardening']['options'].to_hash
 
@@ -65,4 +65,3 @@ execute 'generate_dh_group' do
   command "openssl dhparam -out #{node['nginx-hardening']['options']['ssl_dhparam']} #{node['nginx-hardening']['dh-size']}"
   not_if { File.exist?(node['nginx-hardening']['options']['ssl_dhparam']) }
 end
-
