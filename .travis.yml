@@ -7,39 +7,30 @@ dist: trusty
 services:
 - docker
 
-gemfile:
-- Gemfile
-- gemfile.chef-11
-
 before_install:
-- gem install bundler
 - gem --version
+- bundle version
 
 matrix:
   include:
-  - rvm: 1.9.3
+  # verify lint and unit
+  - rvm: 2.3.1
     gemfile: Gemfile
     bundler_args: "--without integration guard tools"
-  - rvm: 1.9.3
-    gemfile: gemfile.chef-11
-    bundler_args: "--without integration guard tools"
-  - rvm: 2.2.4
-    gemfile: Gemfile
-    bundler_args: "--without integration guard tools"
-  - rvm: 2.2.4
-    gemfile: gemfile.chef-11
-    bundler_args: "--without integration guard tools"
-  - rvm: ruby-head
-    gemfile: Gemfile
-    bundler_args: "--without integration guard tools"
-  - rvm: ruby-head
-    gemfile: gemfile.chef-11
-    bundler_args: "--without integration guard tools"
-  - rvm: 2.2.4
+  # integration tests
+  - rvm: 2.3.1
     bundler_args: "--without guard tools"
-    script: bundle exec rake test:integration OS='centos oracle'
+    script: bundle exec rake test:integration OS='centos'
     gemfile: Gemfile
-  - rvm: 2.2.4
+  - rvm: 2.3.1
     bundler_args: "--without guard tools"
-    script: bundle exec rake test:integration OS='ubuntu debian'
+    script: bundle exec rake test:integration OS='oracle'
+    gemfile: Gemfile
+  - rvm: 2.3.1
+    bundler_args: "--without guard tools"
+    script: bundle exec rake test:integration OS='ubuntu'
+    gemfile: Gemfile
+  - rvm: 2.3.1
+    bundler_args: "--without guard tools"
+    script: bundle exec rake test:integration OS='debian'
     gemfile: Gemfile
