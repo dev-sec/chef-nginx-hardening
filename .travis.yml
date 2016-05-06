@@ -11,8 +11,6 @@ gemfile:
 - Gemfile
 - gemfile.chef-11
 
-bundler_args: "--without integration guard tools"
-
 before_install:
 - gem install bundler
 - gem --version
@@ -20,9 +18,28 @@ before_install:
 matrix:
   include:
   - rvm: 1.9.3
-  - rvm: 2.0
-  - rvm: 2.1
+    gemfile: Gemfile
+    bundler_args: "--without integration guard tools"
+  - rvm: 1.9.3
+    gemfile: gemfile.chef-11
+    bundler_args: "--without integration guard tools"
+  - rvm: 2.2.4
+    gemfile: Gemfile
+    bundler_args: "--without integration guard tools"
+  - rvm: 2.2.4
+    gemfile: gemfile.chef-11
+    bundler_args: "--without integration guard tools"
   - rvm: ruby-head
-  - rvm: 2.2
+    gemfile: Gemfile
+    bundler_args: "--without integration guard tools"
+  - rvm: ruby-head
+    gemfile: gemfile.chef-11
+    bundler_args: "--without integration guard tools"
+  - rvm: 2.2.4
     bundler_args: "--without guard tools"
-    script: bundle exec rake test:integration
+    script: bundle exec rake test:integration OS='centos oracle'
+    gemfile: Gemfile
+  - rvm: 2.2.4
+    bundler_args: "--without guard tools"
+    script: bundle exec rake test:integration OS='ubuntu debian'
+    gemfile: Gemfile
