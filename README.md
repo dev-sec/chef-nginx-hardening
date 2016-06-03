@@ -1,9 +1,9 @@
 # nginx-hardening (Chef cookbook)
 
 [![Supermarket](http://img.shields.io/cookbook/v/nginx-hardening.svg)][1]
-[![Build Status](http://img.shields.io/travis/hardening-io/chef-nginx-hardening.svg)][2]
-[![Code Coverage](http://img.shields.io/coveralls/hardening-io/chef-nginx-hardening.svg)][3]
-[![Dependencies](http://img.shields.io/gemnasium/hardening-io/chef-nginx-hardening.svg)][4]
+[![Build Status](http://img.shields.io/travis/dev-sec/chef-nginx-hardening.svg)][2]
+[![Code Coverage](http://img.shields.io/coveralls/dev-sec/chef-nginx-hardening.svg)][3]
+[![Dependencies](http://img.shields.io/gemnasium/dev-sec/chef-nginx-hardening.svg)][4]
 [![Gitter Chat](https://badges.gitter.im/Join%20Chat.svg)][5]
 
 ## Description
@@ -18,8 +18,8 @@ This cookbook provides a secure overlay for nginx configuration.
 
 - Debian 7, 8
 - Ubuntu 12.04, 14.04, 16.04
-- CentOS 6.6, 7.6, 7
-- OracleLinux 6.6, 7.6, 7.1
+- CentOS 6.6, 6.7, 7
+- OracleLinux 6.6, 6.7, 7.1
 
 ## Attributes
 
@@ -108,6 +108,6 @@ limitations under the License.
 
 [1]: https://supermarket.getchef.com/cookbooks/nginx-hardening
 [2]: https://travis-ci.org/dev-sec/chef-nginx-hardening
-[3]: https://coveralls.io/r/hardening-io/chef-nginx-hardening
-[4]: https://gemnasium.com/hardening-io/chef-nginx-hardening
+[3]: https://coveralls.io/r/dev-sec/chef-nginx-hardening
+[4]: https://gemnasium.com/dev-sec/chef-nginx-hardening
 [5]: https://gitter.im/dev-sec/general
