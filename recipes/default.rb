@@ -22,7 +22,6 @@
 include_recipe('nginx-hardening::minimize_access')
 
 node.default['nginx-hardening']['options']['ssl_dhparam'] = ::File.join((node['nginx-hardening']['certificates_dir'] || '/etc/nginx/'), 'dh2048.pem')
-
 options = node['nginx-hardening']['options'].to_hash
 
 # OS-specific configuration
