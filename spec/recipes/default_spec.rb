@@ -19,7 +19,10 @@ require_relative '../spec_helper'
 
 describe 'nginx-hardening::default' do
 
-  let(:chef_run) { ChefSpec::SoloRunner.converge('nginx::default', described_recipe) }
+  before { allow_any_instance_of(Chef::Recipe).to receive(:search) }
+  let(:runner) { ChefSpec::ServerRunner.new }
+  let(:node) { runner.node }
+  let(:chef_run) { runner.converge('nginx::default', described_recipe) }
 
   before do
     stub_command('/usr/sbin/apache2 -t')
