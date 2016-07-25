@@ -23,7 +23,6 @@ This cookbook provides a secure overlay for nginx configuration.
 
 ## Attributes
 
-* `['nginx']['server_tokens']` - `off` to disable disables emitting nginx version in error messages and in the "Server" response header field. Set to `on` to enable the nginx version in error messages and "Server" response header.
 * `['nginx']['client_body_buffer_size']` - `1k` Sets buffer size for reading client request body. In case the request body is larger than the buffer, the whole body or only its part is written to a temporary file.
 * `['nginx']['default_site_enabled']` - `false` to disable the default site. Set to `on` to enable the default site in nginx.
 * `['nginx']['client_max_body_size']` - `1k` to set the maximum allowed size of the client request body, specified in the “Content-Length” request header field. If the size in a request exceeds the configured value, the 413 (Request Entity Too Large) error is returned to the client.
