@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-include_attribute 'nginx'
+include_attribute 'chef_nginx'
 
 # to be on par with the puppet module defaults
 default['nginx']['repo_source'] = 'nginx'
