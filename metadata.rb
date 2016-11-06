@@ -28,3 +28,7 @@ depends 'openssl'
 
 recipe 'nginx-hardening::default', 'configures nginx for hardening'
 recipe 'nginx-hardening::upgrades', 'upgrades dependencies of nginx for hardening'
+
+source_url 'https://github.com/dev-sec/chef-nginx-hardening'
+issues_url 'https://github.com/dev-sec/chef-nginx-hardening/issues'
+chef_version '>= 12.1'
