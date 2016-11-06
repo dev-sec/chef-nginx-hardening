@@ -1,36 +1,44 @@
----
 sudo: required
-language: ruby
-cache: bundler
 dist: trusty
 
-services:
-- docker
+# install the pre-release chef-dk.  Use chef-stable-trusty to install the stable release
+addons:
+  apt:
+    sources:
+      - chef-current-trusty
+    packages:
+      - chefdk
 
-before_install:
-- gem --version
-- bundle version
+# Don't `bundle install` which takes about 1.5 mins
+install: echo "skip bundle install"
+
+branches:
+  only:
+    - master
+
+services: docker
+
+env:
+  matrix:
+  - INSTANCE=default-ubuntu-1204
+  - INSTANCE=default-ubuntu-1404
+  - INSTANCE=default-ubuntu-1604
+  - INSTANCE=default-centos-6
+  - INSTANCE=default-centos-7
+
+before_script:
+  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
+  - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+
+script: KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 
 matrix:
   include:
-  # verify lint and unit
-  - rvm: 2.3.1
-    gemfile: Gemfile
-    bundler_args: "--without integration guard tools"
-  # integration tests
-  - rvm: 2.3.1
-    bundler_args: "--without guard tools"
-    script: bundle exec rake test:integration OS='centos'
-    gemfile: Gemfile
-  - rvm: 2.3.1
-    bundler_args: "--without guard tools"
-    script: bundle exec rake test:integration OS='oracle'
-    gemfile: Gemfile
-  - rvm: 2.3.1
-    bundler_args: "--without guard tools"
-    script: bundle exec rake test:integration OS='ubuntu'
-    gemfile: Gemfile
-  - rvm: 2.3.1
-    bundler_args: "--without guard tools"
-    script: bundle exec rake test:integration OS='debian'
-    gemfile: Gemfile
+    - before_script:
+      - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+      - /opt/chefdk/embedded/bin/chef --version
+      - /opt/chefdk/embedded/bin/cookstyle --version
+      - /opt/chefdk/embedded/bin/foodcritic --version
+    - script:
+      - /opt/chefdk/bin/chef exec rake
+      env: UNIT_AND_LINT=1
