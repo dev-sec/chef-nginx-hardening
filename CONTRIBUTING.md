@@ -1,6 +1,6 @@
 # Contributor Guideline
 
-This document provides an overview of how you can participat in improving this project or extending it. We are grateful for all your help: bug reports and fixes, code contributions, documentation or ideas. Feel free to join, we appreciate your support!!
+This document provides an overview of how you can participate in improving this project or extending it. We are grateful for all your help: bug reports and fixes, code contributions, documentation or ideas. Feel free to join, we appreciate your support!!
 
 ## Communication
 
@@ -10,7 +10,7 @@ Much of the issues, goals and ideas are tracked in the respective projects in Gi
 
 ### Trello
 
-The overall hardening project is organized publicly on Trello. Feel free to join and add tasks and ideas for the overall project. [https://trello.com/b/gL9v8N1q/dt-hardening](https://trello.com/b/gL9v8N1q/dt-hardening)
+The overall hardening project is organized publicly on Trello. Feel free to join and add tasks and ideas for the overall project. <https://trello.com/b/gL9v8N1q/dt-hardening>
 
 ## git and GitHub
 
@@ -30,27 +30,24 @@ Please follow common commit best-practices. Be explicit, have a short summary, a
 
 Some great guidelines can be found [here](https://wiki.openstack.org/wiki/GitCommitMessages) and [here](http://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message).
 
-
 ## Expectations
 
 ### Don't reinvent the wheel
 
 This hardening project doesn't intend to reinvent the configuration stack for services. Aim to use official configuration projects first and provide hardening as a layer on top. The goal is remove the need for a user to configure all aspects of services and maintain security configuration. This way, the user can still configure a service using the interface provided by the official project.
 
-* For Chef refer to the official [opscode community cookbooks](http://community.opscode.com/cookbooks).
-* For Puppet head to the [Puppet Forge](https://forge.puppetlabs.com/) and take a node of the Puppet supported modules.
+- For Chef refer to the official [Chef Supermarket](https://supermarket.chef.io/).
+- For Puppet head to the [Puppet Forge](https://forge.puppetlabs.com/) and take a node of the Puppet supported modules.
 
 These projects are generally hosted on GitHub as well.
 
-In some cases, we in fact create the full rollout stack, but this is generally the exception ([os-hardening](https://github.com/TelekomLabs/chef-os-hardening), [nginx-hardening](https://github.com/TelekomLabs/chef-nginx-hardening)).
-
+In some cases, we in fact create the full rollout stack, but this is generally the exception ([os-hardening](https://github.com/dev-sec/chef-os-hardening), [nginx-hardening](https://github.com/dev-sec/chef-nginx-hardening)).
 
 ### Be explicit
 
-* Please avoid using nonsensical property and variable names
-* Use self-describing attribute names for user configuration
-* In case of failures, communicate what happened and why a failure occurs to the user. Make it easy to track the code or action that produced the error. Try to catch and handle errors if possible to provide improved failure messages.
-
+- Please avoid using nonsensical property and variable names
+- Use self-describing attribute names for user configuration
+- In case of failures, communicate what happened and why a failure occurs to the user. Make it easy to track the code or action that produced the error. Try to catch and handle errors if possible to provide improved failure messages.
 
 ### Add tests
 
@@ -62,26 +59,23 @@ You may add a new feature request by creating a test for whatever value you need
 
 All tests will be reviewed internally for their validity and overall project direction.
 
-
 ### Document your code
 
-As code is more often read than written, please provide documentation in all projects. 
+As code is more often read than written, please provide documentation in all projects.
 
 Adhere to the respective guidelines for documentation:
 
-* Chef generally documents code based explicit readme files. For code documentation please use [yard-chef](https://github.com/rightscale/yard-chef)
-* [Puppet module documentation](http://docs.puppetlabs.com/puppet/latest/reference/modules_documentation.html)
-
+- Chef generally documents code based explicit readme files. For code documentation please use [yard-chef](https://github.com/rightscale/yard-chef)
+- [Puppet module documentation](http://docs.puppetlabs.com/puppet/latest/reference/modules_documentation.html)
 
 ### Follow coding styles
 
 We generally include test for coding guidelines:
 
-* Chef follows [Foodcritic](http://acrmp.github.io/foodcritic/)
-* Puppet is checked with [puppet-lint](http://puppet-lint.com/checks/)
+- Chef follows [Foodcritic](http://acrmp.github.io/foodcritic/)
+- Puppet is checked with [puppet-lint](http://puppet-lint.com/checks/)
 
 Remember: Code is generally read much more often than written.
-
 
 ### Use Markdown
 
