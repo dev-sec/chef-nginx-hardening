@@ -21,7 +21,7 @@ maintainer_email "dominik.richter@googlemail.com"
 license          "Apache 2.0"
 description      "Configures nginx hardening"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "1.0.0"
+version          "1.1.0"
 
 depends 'nginx', '>= 2.0.0'
 depends 'openssl'

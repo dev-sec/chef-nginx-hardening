@@ -4,7 +4,14 @@ source 'https://rubygems.org'
 
 gem 'berkshelf',  '~> 4.0'
 gem 'chef',       '>= 12.0'
-gem 'inspec',     '~> 0'
+
+# pin dependency for Ruby 1.9.3 since bundler is not
+# detecting that net-ssh 3 does not work with 1.9.3
+if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.2.2')
+  gem 'listen', '~> 3.0.0'
+  gem 'ruby_dep', '~> 1.3.0'
+  gem 'rack', '< 2.0'
+end
 
 group :test do
   gem 'rake'
