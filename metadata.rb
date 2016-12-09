@@ -15,16 +15,20 @@
 # limitations under the License.
 #
 
-name             "nginx-hardening"
-maintainer       "Dominik Richter"
-maintainer_email "dominik.richter@googlemail.com"
-license          "Apache 2.0"
-description      "Configures nginx hardening"
+name             'nginx-hardening'
+maintainer       'Dominik Richter'
+maintainer_email 'dominik.richter@googlemail.com'
+license          'Apache 2.0'
+description      'Configures nginx hardening'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "1.1.0"
 
-depends 'nginx', '>= 2.0.0'
+depends 'chef_nginx', '>= 4.0'
 depends 'openssl'
 
 recipe 'nginx-hardening::default', 'configures nginx for hardening'
 recipe 'nginx-hardening::upgrades', 'upgrades dependencies of nginx for hardening'
+
+source_url 'https://github.com/dev-sec/chef-nginx-hardening'
+issues_url 'https://github.com/dev-sec/chef-nginx-hardening/issues'
+chef_version '>= 12.1'
