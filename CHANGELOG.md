@@ -1,12 +1,18 @@
 # Change Log
 
-## [1.0.0](https://github.com/dev-sec/chef-nginx-hardening/tree/1.0.0) (2016-06-03)
+## [v1.1.0](https://github.com/dev-sec/chef-nginx-hardening/tree/v1.1.0) (2016-11-20)
 **Closed issues:**
 
+- release version [\#30](https://github.com/dev-sec/chef-nginx-hardening/issues/30)
 - Improve detection [\#5](https://github.com/dev-sec/chef-nginx-hardening/issues/5)
 
 **Merged pull requests:**
 
+- delete duplicate entry about server tokens [\#36](https://github.com/dev-sec/chef-nginx-hardening/pull/36) ([rndmh3ro](https://github.com/rndmh3ro))
+- Add fedora to platform\_family. [\#35](https://github.com/dev-sec/chef-nginx-hardening/pull/35) ([chris-rock](https://github.com/chris-rock))
+- remove net-ssh version pin and fix chefspec issue [\#34](https://github.com/dev-sec/chef-nginx-hardening/pull/34) ([atomic111](https://github.com/atomic111))
+- remove ubuntu 15.10 from kitchen.yml [\#32](https://github.com/dev-sec/chef-nginx-hardening/pull/32) ([atomic111](https://github.com/atomic111))
+- bump version to 1.0.0 [\#31](https://github.com/dev-sec/chef-nginx-hardening/pull/31) ([chris-rock](https://github.com/chris-rock))
 - change hardeni-io in dev-sec [\#29](https://github.com/dev-sec/chef-nginx-hardening/pull/29) ([atomic111](https://github.com/atomic111))
 - migrate to kitchen-dokken and create content for README.md [\#28](https://github.com/dev-sec/chef-nginx-hardening/pull/28) ([atomic111](https://github.com/atomic111))
 - update common kitchen.yml platforms [\#27](https://github.com/dev-sec/chef-nginx-hardening/pull/27) ([chris-rock](https://github.com/chris-rock))
