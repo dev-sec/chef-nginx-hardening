@@ -30,7 +30,7 @@ supports 'debian', '>= 7'
 supports 'ubuntu', '>= 12.04'
 supports 'centos', '>= 6.6'
 
-depends 'nginx', '>= 2.0.0'
+depends 'chef_nginx'
 depends 'openssl'
 
 recipe 'nginx-hardening::default', 'configures nginx for hardening'
