@@ -1,10 +1,17 @@
 #!/usr/bin/env rake
 
+<<<<<<< master
 # Style tests. cookstyle (rubocop) and Foodcritic
 namespace :style do
   begin
     require 'cookstyle'
     require 'rubocop/rake_task'
+=======
+require 'foodcritic'
+require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
+require 'chef/cookbook/metadata'
+>>>>>>> master
 
     desc 'Run Ruby style checks'
     RuboCop::RakeTask.new(:ruby)
@@ -69,8 +76,15 @@ task default: %w(style spec)
 # Automatically generate a changelog for this project. Only loaded if
 # the necessary gem is installed.
 begin
+  # read version from metadata
+  metadata = Chef::Cookbook::Metadata.new
+  metadata.instance_eval(File.read('metadata.rb'))
+
+  # build changelog
   require 'github_changelog_generator/task'
-  GitHubChangelogGenerator::RakeTask.new :changelog
+  GitHubChangelogGenerator::RakeTask.new :changelog do |config|
+    config.future_release = "v#{metadata.version}"
+  end
 rescue LoadError
   puts '>>>>> GitHub Changelog Generator not loaded, omitting tasks'
 end
