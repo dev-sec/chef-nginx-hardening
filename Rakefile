@@ -1,18 +1,10 @@
 #!/usr/bin/env rake
 
-<<<<<<< master
 # Style tests. cookstyle (rubocop) and Foodcritic
 namespace :style do
   begin
     require 'cookstyle'
     require 'rubocop/rake_task'
-=======
-require 'foodcritic'
-require 'rspec/core/rake_task'
-require 'rubocop/rake_task'
-require 'chef/cookbook/metadata'
->>>>>>> master
-
     desc 'Run Ruby style checks'
     RuboCop::RakeTask.new(:ruby)
   rescue LoadError => e
@@ -36,6 +28,7 @@ end
 
 desc 'Run all style checks'
 task style: ['style:chef', 'style:ruby']
+task lint: ['style']
 
 # ChefSpec
 begin
@@ -76,6 +69,8 @@ task default: %w(style spec)
 # Automatically generate a changelog for this project. Only loaded if
 # the necessary gem is installed.
 begin
+  require 'chef/cookbook/metadata'
+
   # read version from metadata
   metadata = Chef::Cookbook::Metadata.new
   metadata.instance_eval(File.read('metadata.rb'))
