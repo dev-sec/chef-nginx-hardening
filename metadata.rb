@@ -23,6 +23,13 @@ description      "Configures nginx hardening"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "1.1.0"
 
+issues_url       'https://github.com/dev-sec/chef-nginx-hardening/issues'
+source_url       'https://github.com/dev-sec/chef-nginx-hardening'
+
+supports 'debian', '>= 7'
+supports 'ubuntu', '>= 12.04'
+supports 'centos', '>= 6.6'
+
 depends 'nginx', '>= 2.0.0'
 depends 'openssl'
 
