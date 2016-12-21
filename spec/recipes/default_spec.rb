@@ -21,6 +21,7 @@ describe 'nginx-hardening::default' do
   before { allow_any_instance_of(Chef::Recipe).to receive(:search) }
   let(:runner) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04') }
   let(:node) { runner.node }
+  let(:chef_run) { runner.converge('chef_nginx::default', described_recipe) }
 
   before do
     stub_command('/usr/sbin/apache2 -t')
