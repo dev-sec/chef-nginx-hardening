@@ -1,6 +1,19 @@
 # Change Log
 
-## [v1.1.0](https://github.com/dev-sec/chef-nginx-hardening/tree/v1.1.0) (2016-11-20)
+## [v2.0.0](https://github.com/dev-sec/chef-nginx-hardening/tree/v2.0.0) (2016-12-21)
+[Full Changelog](https://github.com/dev-sec/chef-nginx-hardening/compare/v1.1.0...v2.0.0)
+
+**Closed issues:**
+
+- Upload to supermarket? [\#38](https://github.com/dev-sec/chef-nginx-hardening/issues/38)
+
+**Merged pull requests:**
+
+- Added sources and issue url, for the Chef Supermarket reference [\#40](https://github.com/dev-sec/chef-nginx-hardening/pull/40) ([enzor](https://github.com/enzor))
+- Switch to chef\_nginx and update testing [\#39](https://github.com/dev-sec/chef-nginx-hardening/pull/39) ([tas50](https://github.com/tas50))
+- move to chef\_nginx fork [\#37](https://github.com/dev-sec/chef-nginx-hardening/pull/37) ([mburns](https://github.com/mburns))
+
+## [v1.1.0](https://github.com/dev-sec/chef-nginx-hardening/tree/v1.1.0) (2016-11-21)
 **Closed issues:**
 
 - release version [\#30](https://github.com/dev-sec/chef-nginx-hardening/issues/30)
