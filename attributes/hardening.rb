@@ -43,7 +43,7 @@ default['nginx-hardening']['options'] = {
 
   'more_clear_headers' => [
     '\'Server\'',
-    '\'X-Powered-By\''
+    '\'X-Powered-By\'',
   ],
 
   'client_header_buffer_size' => '1k',
@@ -67,8 +67,8 @@ default['nginx-hardening']['options'] = {
     'X-Content-Type-Options nosniff',
 
     # XSS filter
-    'X-XSS-Protection "1; mode=block"'
-  ]
+    'X-XSS-Protection "1; mode=block"',
+  ],
 
 }
 
