@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'berkshelf',  '~> 4.0'
+gem 'berkshelf',  '~> 5.0'
 gem 'chef',       '>= 12.0'
 
 # pin dependency for Ruby 1.9.3 since bundler is not
@@ -15,11 +15,11 @@ end
 
 group :test do
   gem 'rake'
-  gem 'chefspec',   '~> 4.2.0'
-  gem 'foodcritic', '~> 4.0'
+  gem 'chefspec',   '~> 5.3'
+  gem 'foodcritic', '~> 8.0'
   gem 'thor-foodcritic'
-  gem 'rubocop',    '~> 0.31.0'
-  gem 'coveralls',  require: false
+  gem 'cookstyle'
+  gem 'coveralls', require: false
   gem 'minitest', '~> 5.5'
   gem 'simplecov', '~> 0.10'
 end
@@ -29,7 +29,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-kitchen'
   gem 'guard-rubocop'
-  gem 'guard-foodcritic'
+  # gem 'guard-foodcritic' # disabled until a new release comes out that removes the pin
 end
 
 group :integration do
@@ -42,5 +42,5 @@ group :integration do
 end
 
 group :tools do
-  gem 'github_changelog_generator', '~> 1.12.0'
+  gem 'github_changelog_generator', '~> 1.14.0'
 end

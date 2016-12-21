@@ -25,7 +25,7 @@ node.default['nginx-hardening']['options']['ssl_dhparam'] = ::File.join((node['n
 options = node['nginx-hardening']['options'].to_hash
 
 # OS-specific configuration
-if platform?('ubuntu', 'debian')
+if platform_family?('debian')
 
   # when installing from canonical package on Ubuntu
   # we can get additional modules via extra package

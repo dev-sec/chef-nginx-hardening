@@ -18,9 +18,8 @@
 require_relative '../spec_helper'
 
 describe 'nginx-hardening::default' do
-
   before { allow_any_instance_of(Chef::Recipe).to receive(:search) }
-  let(:runner) { ChefSpec::ServerRunner.new }
+  let(:runner) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04') }
   let(:node) { runner.node }
 
   before do
