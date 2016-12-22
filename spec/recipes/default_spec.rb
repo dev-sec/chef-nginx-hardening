@@ -32,7 +32,7 @@ describe 'nginx-hardening::default' do
   end
 
   # check that the recipres are executed
-  it 'default should include os-hardening recipes by default' do
+  it 'default should include nginx-hardening recipes by default' do
     expect(chef_run).to include_recipe 'nginx-hardening::minimize_access'
   end
 
