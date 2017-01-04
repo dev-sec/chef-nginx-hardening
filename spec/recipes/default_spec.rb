@@ -15,23 +15,17 @@
 # limitations under the License.
 #
 
-require_relative '../spec_helper'
+require 'spec_helper'
 
 describe 'nginx-hardening::default' do
-  before { allow_any_instance_of(Chef::Recipe).to receive(:search) }
   let(:runner) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04') }
-  let(:node) { runner.node }
   let(:chef_run) { runner.converge('chef_nginx::default', described_recipe) }
 
-  before do
-    stub_command('/usr/sbin/apache2 -t')
+  before(:each) do
     stub_command("find /etc/nginx -perm -o+r -type f -o -perm -o+w -type f | wc -l | egrep '^0$'")
-    stub_command('which nginx').and_return(true)
-    allow(::File).to receive(:exist?).and_return(false)
-    allow(::File).to receive(:exist?).with('/etc/nginx/dh2048.pem').and_return(false)
   end
 
-  # check that the recipres are executed
+  # check that the recipes are executed
   it 'default should include os-hardening recipes by default' do
     expect(chef_run).to include_recipe 'nginx-hardening::minimize_access'
   end
