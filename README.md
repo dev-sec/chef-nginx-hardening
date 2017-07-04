@@ -13,7 +13,7 @@ This cookbook provides a secure overlay for nginx configuration.
 ### Platform
 
 - Debian 7, 8
-- Ubuntu 12.04, 14.04, 16.04
+- Ubuntu 14.04, 16.04
 - CentOS 6, 7
 - OracleLinux 6.6, 6.7, 7.1
 
@@ -26,8 +26,8 @@ This cookbook provides a secure overlay for nginx configuration.
 - `['nginx']['server_tokens']` - `off` to disable disables emitting nginx version in error messages and in the "Server" response header field. Set to `on` to enable the nginx version in error messages and "Server" response header.
 - `['nginx-hardening']['source']['http_autoindex_module']` - `false` to disable the HTTP Autoindex module. Set to `true` to enable http_autoindex_module.
 - `['nginx-hardening']['source']['http_ssi_module']` - `false` to disable the HTTP SSI module. Set to `true` to enable http_ssi_module.
-- `['nginx-hardening']['options']['ssl_protocols']` - `'TLSv1 TLSv1.1 TLSv1.2'` to specify the SSL protocol which should be used.
-- `['nginx-hardening']['options']['ssl_ciphers']` - `'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA'` to specify the TLS ciphers which should be used.
+- `['nginx-hardening']['options']['ssl_protocols']` - `'TLSv1.2'` to specify the SSL protocol which should be used.
+- `['nginx-hardening']['options']['ssl_ciphers']` - `'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256'` to specify the TLS ciphers which should be used.
 - `['nginx-hardening']['options']['ssl_prefer_server_ciphers']` - `'on'` Specifies that server ciphers should be preferred over client ciphers when using the TLS protocols. Set to `false` to disable it.
 - `['nginx-hardening']['dh-size']` - `2048` Specifies the length of DH parameters for EDH ciphers.
 
@@ -65,15 +65,15 @@ bundle install
 bundle exec rake lint
 
 # fast test on one machine
-bundle exec kitchen test default-ubuntu-1204
+bundle exec kitchen test default-ubuntu-1404
 
 # test on all machines
 bundle exec kitchen test
 
 # for development
-bundle exec kitchen create default-ubuntu-1204
-bundle exec kitchen converge default-ubuntu-1204
-bundle exec kitchen verify default-ubuntu-1204
+bundle exec kitchen create default-ubuntu-1404
+bundle exec kitchen converge default-ubuntu-1404
+bundle exec kitchen verify default-ubuntu-1404
 ```
 
 ## Contributors + Kudos
