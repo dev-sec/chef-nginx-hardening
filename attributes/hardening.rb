@@ -68,6 +68,12 @@ default['nginx-hardening']['options'] = {
 
     # XSS filter
     'X-XSS-Protection "1; mode=block"',
+
+    # HSTS Header
+    'Strict-Transport-Security max-age=15768000',
+
+    # Content Security Header
+    'Content-Security-Policy "script-src \'self\'; object-src \'self\'"',
   ],
 
 }
