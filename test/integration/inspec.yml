@@ -1,0 +1,4 @@
+name: nginx-hardening-integration-tests
+depends:
+  - name: nginx-baseline
+    url: https://github.com/dev-sec/nginx-baseline

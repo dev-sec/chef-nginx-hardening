@@ -81,7 +81,6 @@ platforms:
     intermediate_instructions:
       - RUN zypper --non-interactive install aaa_base perl-Getopt-Long-Descriptive which
 
-
 suites:
 - name: default
   run_list:
@@ -91,4 +90,4 @@ suites:
     - recipe[nginx-hardening]
   verifier:
     inspec_tests:
-      - https://github.com/dev-sec/tests-nginx-hardening
+      - path: test/integration/default
