@@ -31,7 +31,7 @@ This cookbook provides a secure overlay for nginx configuration.
 - `['nginx-hardening']['options']['ssl_prefer_server_ciphers']` - `'on'` Specifies that server ciphers should be preferred over client ciphers when using the TLS protocols. Set to `false` to disable it.
 - `['nginx-hardening']['dh-size']` - `2048` Specifies the length of DH parameters for EDH ciphers.
 
-You can also use the complete attributes from the [chef_nginx cookbook](https://supermarket.chef.io/cookbooks/chef_nginx)
+You can also use the complete attributes from the [nginx cookbook](https://supermarket.chef.io/cookbooks/nginx)
 
 ## Usage
 
@@ -40,7 +40,7 @@ Add the recipes to the run_list:
 ```
 "recipe[apt]"
 "recipe[nginx-hardening::upgrades]"
-"recipe[chef_nginx]"
+"recipe[nginx]"
 "recipe[nginx-hardening]"
 ```
 

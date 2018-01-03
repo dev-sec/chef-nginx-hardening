@@ -31,7 +31,7 @@ suites:
   run_list:
   - recipe[apt]
   - recipe[nginx-hardening::upgrades]
-  - recipe[chef_nginx]
+  - recipe[nginx]
   - recipe[nginx-hardening]
   verifier:
     inspec_tests:
