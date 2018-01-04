@@ -18,7 +18,7 @@
 name             'nginx-hardening'
 maintainer       'Dominik Richter'
 maintainer_email 'dominik.richter@googlemail.com'
-license          'Apache 2.0'
+license          'Apache-2.0'
 description      'Configures nginx hardening'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
