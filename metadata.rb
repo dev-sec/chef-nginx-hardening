@@ -22,7 +22,7 @@ license          'Apache-2.0'
 description      'Configures nginx hardening'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
-version          '2.0.0'
+version          '3.0.0'
 
 issues_url       'https://github.com/dev-sec/chef-nginx-hardening/issues'
 source_url       'https://github.com/dev-sec/chef-nginx-hardening'
