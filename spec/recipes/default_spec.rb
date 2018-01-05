@@ -19,7 +19,7 @@ require 'spec_helper'
 
 describe 'nginx-hardening::default' do
   let(:runner) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04') }
-  let(:chef_run) { runner.converge('chef_nginx::default', described_recipe) }
+  let(:chef_run) { runner.converge('nginx::default', described_recipe) }
 
   before(:each) do
     stub_command("find /etc/nginx -perm -o+r -type f -o -perm -o+w -type f | wc -l | egrep '^0$'")
