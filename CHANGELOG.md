@@ -1,5 +1,17 @@
 # Change Log
 
+## [v3.0.0](https://github.com/dev-sec/chef-nginx-hardening/tree/v3.0.0) (2018-01-05)
+[Full Changelog](https://github.com/dev-sec/chef-nginx-hardening/compare/v2.0.0...v3.0.0)
+
+**Closed issues:**
+
+- Update metadata to depend on "nginx" cookbook [\#47](https://github.com/dev-sec/chef-nginx-hardening/issues/47)
+
+**Merged pull requests:**
+
+- switch to nginx cookbook [\#48](https://github.com/dev-sec/chef-nginx-hardening/pull/48) ([rveznaver](https://github.com/rveznaver))
+- add headers and cleaning [\#46](https://github.com/dev-sec/chef-nginx-hardening/pull/46) ([atomic111](https://github.com/atomic111))
+
 ## [v2.0.0](https://github.com/dev-sec/chef-nginx-hardening/tree/v2.0.0) (2017-01-04)
 [Full Changelog](https://github.com/dev-sec/chef-nginx-hardening/compare/v1.1.0...v2.0.0)
 
