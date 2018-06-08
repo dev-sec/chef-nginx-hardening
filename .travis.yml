@@ -5,9 +5,9 @@ dist: trusty
 addons:
   apt:
     sources:
-      - chef-current-trusty
+      - chef-stable-trusty
     packages:
-      - chefdk
+      - chefdk=2.5.3-1
 
 # Don't `bundle install` which takes about 1.5 mins
 install: echo "skip bundle install"
@@ -31,7 +31,7 @@ before_script:
   - /opt/chefdk/embedded/bin/chef --version
   - /opt/chefdk/embedded/bin/cookstyle --version
   - /opt/chefdk/embedded/bin/foodcritic --version
-  - /opt/chefdk/embedded/bin/chef gem install coveralls -v 0.8.19 # needed for chefspecs
+  - /opt/chefdk/embedded/bin/chef gem install coveralls
 
 script: KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 
