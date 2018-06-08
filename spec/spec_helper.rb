@@ -1,5 +1,5 @@
 # encoding: utf-8
-#
+
 # Copyright 2014, Dominik Richter
 # Copyright 2014, Deutsche Telekom AG
 #
@@ -18,14 +18,9 @@
 
 require 'chefspec'
 require 'chefspec/berkshelf'
-require 'coveralls'
 
 RSpec.configure do |config|
   config.color = true               # Use color in STDOUT
   config.formatter = :documentation # Use the specified formatter
   config.log_level = :error         # Avoid deprecation notice SPAM
 end
-
-# coverage report
-Coveralls.wear!
-at_exit { ChefSpec::Coverage.report! }
