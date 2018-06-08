@@ -2,19 +2,16 @@
 
 source 'https://rubygems.org'
 
-gem 'berkshelf', '~> 6.1'
-gem 'chef', '~> 12.5' # chefspec builds get stucked with 13.1
+gem 'berkshelf', '~> 6.3'
+gem 'chef', '~> 12'
 
 group :test do
   gem 'rake'
-  gem 'chefspec', '~> 7.1.0'
-  gem 'foodcritic', '~> 11.1'
-  gem 'thor', '~> 0.19.1'
-  gem 'thor-foodcritic'
-  gem 'cookstyle'
+  gem 'chefspec', '~> 7.2.1'
+  gem 'foodcritic', '~> 13.1'
+  gem 'cookstyle', '~> 3'
   gem 'coveralls', require: false
   gem 'minitest', '~> 5.10.2'
-  gem 'rubocop', '~> 0.49.0'
   gem 'simplecov', '~> 0.10'
 end
 
