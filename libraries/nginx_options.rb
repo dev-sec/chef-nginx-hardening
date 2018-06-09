@@ -22,7 +22,6 @@
 class Chef
   class Recipe
     class NginxHardening
-      #
       def self.options(map, indentation = 0)
         # prep
         indent = '  ' * indentation
@@ -54,7 +53,6 @@ class Chef
             end
           end.join(indent)
       end
-      #
     end
   end
 end
