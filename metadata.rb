@@ -1,6 +1,5 @@
-# encoding: utf-8
 #
-# Copyright 2014, Deutsche Telekom AG
+# Copyright:: 2014, Deutsche Telekom AG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +19,6 @@ maintainer       'Dominik Richter'
 maintainer_email 'dominik.richter@googlemail.com'
 license          'Apache-2.0'
 description      'Configures nginx hardening'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
 version          '3.0.0'
 
@@ -32,10 +30,6 @@ supports 'ubuntu', '>= 12.04'
 supports 'centos', '>= 6.6'
 
 depends 'nginx', '>= 7.0'
-depends 'openssl'
-
-recipe 'nginx-hardening::default', 'configures nginx for hardening'
-recipe 'nginx-hardening::upgrades', 'upgrades dependencies of nginx for hardening'
 
 source_url 'https://github.com/dev-sec/chef-nginx-hardening'
 issues_url 'https://github.com/dev-sec/chef-nginx-hardening/issues'
