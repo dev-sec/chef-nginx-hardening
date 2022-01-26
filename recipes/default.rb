@@ -1,10 +1,9 @@
-# encoding: utf-8
 #
-# Cookbook Name:: nginx-hardening
+# Cookbook:: nginx-hardening
 # Recipe:: default.rb
 #
-# Copyright 2014, Dominik Richter
-# Copyright 2014, Deutsche Telekom AG
+# Copyright:: 2014, Dominik Richter
+# Copyright:: 2014, Deutsche Telekom AG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +18,7 @@
 # limitations under the License.
 #
 
-include_recipe('nginx-hardening::minimize_access')
+include_recipe 'nginx-hardening::minimize_access'
 
 node.default['nginx-hardening']['options']['ssl_dhparam'] = ::File.join((node['nginx-hardening']['certificates_dir'] || node['nginx']['dir']), 'dh2048.pem')
 options = node['nginx-hardening']['options'].to_hash
@@ -62,5 +61,5 @@ end
 
 execute 'generate_dh_group' do
   command "openssl dhparam -out #{node['nginx-hardening']['options']['ssl_dhparam']} #{node['nginx-hardening']['dh-size']}"
-  not_if { File.exist?(node['nginx-hardening']['options']['ssl_dhparam']) }
+  not_if { ::File.exist?(node['nginx-hardening']['options']['ssl_dhparam']) }
 end

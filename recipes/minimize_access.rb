@@ -1,9 +1,8 @@
-# encoding: utf-8
 #
-# Cookbook Name: nginx-hardening
+# Cookbook:: Name: nginx-hardening
 # Recipe: minimize_access
 #
-# Copyright 2014, Deutsche Telekom AG
+# Copyright:: 2014, Deutsche Telekom AG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
