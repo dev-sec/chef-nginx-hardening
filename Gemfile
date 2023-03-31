@@ -2,16 +2,16 @@
 
 source 'https://rubygems.org'
 
-gem 'berkshelf', '~> 6.3'
-gem 'chef', '~> 12'
+gem 'berkshelf', '~> 8.0'
+gem 'chef', '~> 18'
 
 group :test do
   gem 'rake'
-  gem 'chefspec', '~> 7.2.1'
-  gem 'foodcritic', '~> 13.1'
-  gem 'cookstyle', '~> 3'
+  gem 'chefspec', '~> 9.3.0'
+  gem 'foodcritic', '~> 16.0'
+  gem 'cookstyle', '~> 7'
   gem 'coveralls', require: false
-  gem 'minitest', '~> 5.10.2'
+  gem 'minitest', '~> 5.18.0'
   gem 'simplecov', '~> 0.10'
 end
 
@@ -24,11 +24,11 @@ group :development do
 end
 
 group :integration do
-  gem 'test-kitchen', '~> 1.16.0'
+  gem 'test-kitchen', '~> 3.5.0'
   gem 'kitchen-vagrant'
   gem 'kitchen-dokken'
   gem 'kitchen-inspec'
-  gem 'concurrent-ruby', '~> 1.0.5'
+  gem 'concurrent-ruby', '~> 1.2.0'
 end
 
 group :tools do
