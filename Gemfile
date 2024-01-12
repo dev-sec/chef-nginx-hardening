@@ -11,7 +11,7 @@ group :test do
   gem 'foodcritic', '~> 16.0'
   gem 'cookstyle', '~> 7'
   gem 'coveralls', require: false
-  gem 'minitest', '~> 5.20.0'
+  gem 'minitest', '~> 5.21.0'
   gem 'simplecov', '~> 0.10'
 end
 
