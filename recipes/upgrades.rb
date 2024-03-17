@@ -1,10 +1,9 @@
-# encoding: utf-8
 #
-# Cookbook Name:: nginx-hardening
+# Cookbook:: nginx-hardening
 # Recipe:: default.rb
 #
-# Copyright 2015, Edmund Haselwanter
-# Copyright 2015, Deutsche Telekom AG
+# Copyright:: 2015, Edmund Haselwanter
+# Copyright:: 2015, Deutsche Telekom AG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
