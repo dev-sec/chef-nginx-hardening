@@ -9,7 +9,7 @@ group :test do
   gem 'rake'
   gem 'chefspec', '~> 9.3.0'
   gem 'foodcritic', '~> 16.0'
-  gem 'cookstyle', '~> 7'
+  gem 'cookstyle', '~> 8'
   gem 'coveralls', require: false
   gem 'minitest', '~> 5.25.0'
   gem 'simplecov', '~> 0.10'
