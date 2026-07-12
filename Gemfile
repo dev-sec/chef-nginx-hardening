@@ -12,7 +12,7 @@ group :test do
   gem 'cookstyle', '~> 7'
   gem 'coveralls', require: false
   gem 'minitest', '~> 5.27.0'
-  gem 'simplecov', '~> 0.10'
+  gem 'simplecov', '~> 1.0'
 end
 
 group :development do
